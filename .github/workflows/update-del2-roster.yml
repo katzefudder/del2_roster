@@ -44,13 +44,13 @@ jobs:
 
       - name: Ergebnis committen
         run: |
-          if git diff --quiet -- roster.md; then
+          if git diff --quiet -- roster_del2.txt; then
             echo "Keine Kaderänderungen gefunden."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add roster.md
+          git add roster_del2.txt
           git commit -m "chore: DEL2-Kader aktualisieren"
           git push
