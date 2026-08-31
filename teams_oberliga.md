@@ -1,0 +1,2 @@
+- Oberliga Nord: https://deb-online.live/liga/herren/oberliga-nord/?divisionId=21610
+- Oberliga Süd: https://deb-online.live/liga/herren/oberliga-sued/?divisionId=21614

@@ -9,6 +9,7 @@ on:
       - rules.md
       - teams_del.md
       - teams_del2.md
+      - teams_oberliga.md
   schedule:
     - cron: "15 5 * * *"
   workflow_dispatch:
@@ -40,11 +41,15 @@ jobs:
             cat teams_del2.md
             printf '\n\nDEL: Kürzel und Quellen aus teams_del.md; Ergebnis in roster_del.txt.\n'
             cat teams_del.md
+            printf '\n\nOberliga Nord und Süd: Quellen aus teams_oberliga.md; Ergebnis in roster_oberliga.txt.\n'
+            cat teams_oberliga.md
             printf '\n\nArbeitsauftrag:\n'
-            printf '%s\n' 'Aktualisiere beide Ziel-Dateien in einer Sitzung.'
+            printf '%s\n' 'Aktualisiere alle drei Ziel-Dateien in einer Sitzung.'
             printf '%s\n' 'Lies die jeweilige Ziel-Datei als Ergebnis des vorherigen Laufs.'
             printf '%s\n' 'Enthält sie nur einen Initialisierungshinweis, behandle sie als keinen vorherigen Lauf.'
-            printf '%s\n' 'Ändere ausschließlich roster_del2.txt und roster_del.txt; gib keine Erläuterung im Terminal aus.'
+            printf '%s\n' 'Für roster_oberliga.txt prüfe alle Teams beider angegebenen Oberliga-Staffeln über deb-online.live.'
+            printf '%s\n' 'Nutze die auf deb-online.live angezeigten Teamkürzel; trenne die Staffeln mit den Überschriften Oberliga Nord und Oberliga Süd.'
+            printf '%s\n' 'Ändere ausschließlich roster_del2.txt, roster_del.txt und roster_oberliga.txt; gib keine Erläuterung im Terminal aus.'
           } > /tmp/copilot-prompt.md
           copilot --prompt "$(cat /tmp/copilot-prompt.md)" --allow-all \
             --no-ask-user --silent --secret-env-vars=GH_TOKEN
@@ -53,12 +58,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add roster_del2.txt roster_del.txt
+          git add roster_del2.txt roster_del.txt roster_oberliga.txt
 
           if git diff --cached --quiet; then
             echo "Keine Kaderänderungen gefunden."
             exit 0
           fi
 
-          git commit -m "chore: DEL-Kader aktualisieren"
+          git commit -m "chore: Eishockey-Kader aktualisieren"
           git push
