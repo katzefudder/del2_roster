@@ -10,6 +10,7 @@ Regeln:
 - Übernimm Umlaute und Sonderzeichen korrekt.
 - Verwende zwischen dem Kürzel und dem Spieler-Eintrag einen echten Tabulator.
 - Gib jede Mannschaft in einem eigenen Codeblock aus.
+- Bitte füge am Ende der Liste den Assistant Coach mit der Rückennummer 101 und den Coach mit der Rückennummer 100 ein
 - Verwende exakt dieses Format:
 
 - TEAMNAME -
@@ -18,6 +19,8 @@ KÜRZELNUMMER<TAB>-NUMMER- Vorname Nachname (TEAMNAME)
 
 Beispiel:
 bn2	-2- Joel Keussen (EC Bad Nauheim)
+bn100   Kevin Gaudet (Coach EC Bad Nauheim)
+bn101   Dominic Auger (Assistant Coach EC Bad Nauheim)
 
 Vergleiche das Ergebnis mit dem vorherigen Lauf.
 Zeige am Anfang zusätzlich kurz:
