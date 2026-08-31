@@ -1,6 +1,9 @@
 name: DEL2-Kader aktualisieren
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "15 5 * * *"
   workflow_dispatch:
