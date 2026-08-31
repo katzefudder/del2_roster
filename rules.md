@@ -9,7 +9,7 @@ Regeln:
 - Nutze die Kürzel aus teams_del2.md
 - Übernimm Umlaute und Sonderzeichen korrekt.
 - Verwende zwischen dem Kürzel und dem Spieler-Eintrag einen echten Tabulator.
-- Gib jede Mannschaft in einem eigenen Codeblock aus.
+- Gib alle Roster in einem Codeblock aus, bitte als roster_del2.txt
 - Bitte füge am Ende der Liste den Assistant Coach mit der Rückennummer 101 und den Coach mit der Rückennummer 100 ein
 - Verwende exakt dieses Format:
 
