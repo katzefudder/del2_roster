@@ -35,8 +35,8 @@ jobs:
             cat teams_del2.md
             printf '\n\nArbeitsauftrag:\n'
             printf '%s\n' 'Rufe ausschließlich die angegebenen offiziellen DEL2-Quellen auf.'
-            printf '%s\n' 'Lies roster.md, falls die Datei existiert, als Ergebnis des vorherigen Laufs.'
-            printf '%s\n' 'Erstelle oder überschreibe ausschließlich roster.md mit dem vollständigen Ergebnis.'
+            printf '%s\n' 'Lies roster_del2.txt, falls die Datei existiert, als Ergebnis des vorherigen Laufs.'
+            printf '%s\n' 'Erstelle oder überschreibe ausschließlich roster_del2.txt mit dem vollständigen Ergebnis.'
             printf '%s\n' 'Gib keine Erläuterung im Terminal aus und ändere keine anderen Dateien.'
           } > /tmp/copilot-prompt.md
           copilot --prompt "$(cat /tmp/copilot-prompt.md)" --allow-all \
