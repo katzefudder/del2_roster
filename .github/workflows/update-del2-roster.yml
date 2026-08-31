@@ -1,9 +1,14 @@
-name: DEL2-Kader aktualisieren
+name: DEL-Kader aktualisieren
 
 on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/update-del2-roster.yml
+      - rules.md
+      - teams_del.md
+      - teams_del2.md
   schedule:
     - cron: "15 5 * * *"
   workflow_dispatch:
@@ -29,29 +34,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
         run: |
-          update_roster() {
-            local league_name="$1"
-            local teams_file="$2"
-            local roster_file="$3"
-
-            {
-              cat rules.md
-              printf '\n\nLiga: %s\n' "$league_name"
-              printf '\nTeam-Quellen und Kürzel:\n'
-              cat "$teams_file"
-              printf '\n\nArbeitsauftrag:\n'
-              printf '%s\n' 'Rufe ausschließlich die angegebenen offiziellen Quellen auf.'
-              printf '%s\n' "Lies $roster_file als Ergebnis des vorherigen Laufs."
-              printf '%s\n' "Erstelle oder überschreibe ausschließlich $roster_file mit dem vollständigen Ergebnis."
-              printf '%s\n' 'Enthält die Datei nur einen Initialisierungshinweis, behandle sie als keinen vorherigen Lauf.'
-              printf '%s\n' 'Gib keine Erläuterung im Terminal aus und ändere keine anderen Dateien.'
-            } > /tmp/copilot-prompt.md
-            copilot --prompt "$(cat /tmp/copilot-prompt.md)" --allow-all \
-              --no-ask-user --silent --secret-env-vars=GH_TOKEN
-          }
-
-          update_roster "DEL2" "teams_del2.md" "roster_del2.txt"
-          update_roster "DEL" "teams_del.md" "roster_del.txt"
+          {
+            cat rules.md
+            printf '\n\nDEL2: Kürzel und Quellen aus teams_del2.md; Ergebnis in roster_del2.txt.\n'
+            cat teams_del2.md
+            printf '\n\nDEL: Kürzel und Quellen aus teams_del.md; Ergebnis in roster_del.txt.\n'
+            cat teams_del.md
+            printf '\n\nArbeitsauftrag:\n'
+            printf '%s\n' 'Aktualisiere beide Ziel-Dateien in einer Sitzung.'
+            printf '%s\n' 'Lies die jeweilige Ziel-Datei als Ergebnis des vorherigen Laufs.'
+            printf '%s\n' 'Enthält sie nur einen Initialisierungshinweis, behandle sie als keinen vorherigen Lauf.'
+            printf '%s\n' 'Ändere ausschließlich roster_del2.txt und roster_del.txt; gib keine Erläuterung im Terminal aus.'
+          } > /tmp/copilot-prompt.md
+          copilot --prompt "$(cat /tmp/copilot-prompt.md)" --allow-all \
+            --no-ask-user --silent --secret-env-vars=GH_TOKEN
 
       - name: Ergebnis committen
         run: |
@@ -64,5 +60,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore: DEL2-Kader aktualisieren"
+          git commit -m "chore: DEL-Kader aktualisieren"
           git push
