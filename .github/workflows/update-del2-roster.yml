@@ -1,0 +1,53 @@
+name: DEL2-Kader aktualisieren
+
+on:
+  schedule:
+    - cron: "15 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-del2-roster
+  cancel-in-progress: false
+
+jobs:
+  update-roster:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Copilot CLI installieren
+        run: npm install --global @github/copilot
+
+      - name: Aktuelle Kader ermitteln
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          {
+            cat rules.md
+            printf '\n\nTeam-Quellen und Kürzel:\n'
+            cat teams_del2.md
+            printf '\n\nArbeitsauftrag:\n'
+            printf '%s\n' 'Rufe ausschließlich die angegebenen offiziellen DEL2-Quellen auf.'
+            printf '%s\n' 'Lies roster.md, falls die Datei existiert, als Ergebnis des vorherigen Laufs.'
+            printf '%s\n' 'Erstelle oder überschreibe ausschließlich roster.md mit dem vollständigen Ergebnis.'
+            printf '%s\n' 'Gib keine Erläuterung im Terminal aus und ändere keine anderen Dateien.'
+          } > /tmp/copilot-prompt.md
+          copilot --prompt "$(cat /tmp/copilot-prompt.md)" --allow-all \
+            --no-ask-user --silent --secret-env-vars=GH_TOKEN
+
+      - name: Ergebnis committen
+        run: |
+          if git diff --quiet -- roster.md; then
+            echo "Keine Kaderänderungen gefunden."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add roster.md
+          git commit -m "chore: DEL2-Kader aktualisieren"
+          git push
