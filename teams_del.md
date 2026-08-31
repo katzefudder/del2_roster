@@ -1,0 +1,14 @@
+- `ma`: https://www.penny-del.org/teams/adler-mannheim/uebersicht
+- `au`: https://www.penny-del.org/teams/augsburger-panther/uebersicht
+- `mu`: https://www.penny-del.org/teams/ehc-red-bull-muenchen/uebersicht
+- `be`: https://www.penny-del.org/teams/eisbaeren-berlin/uebersicht
+- `in`: https://www.penny-del.org/teams/erc-ingolstadt/uebersicht
+- `wo`: https://www.penny-del.org/teams/grizzlys-wolfsburg/uebersicht
+- `is`: https://www.penny-del.org/teams/iserlohn-roosters/uebersicht
+- `ko`: https://www.penny-del.org/teams/koelner-haie/uebersicht
+- `kr`: https://www.penny-del.org/teams/krefeld-pinguine/uebersicht
+- `fr`: https://www.penny-del.org/teams/loewen-frankfurt/uebersicht
+- `nu`: https://www.penny-del.org/teams/nuernberg-ice-tigers/uebersicht
+- `br`: https://www.penny-del.org/teams/pinguins-bremerhaven/uebersicht
+- `sw`: https://www.penny-del.org/teams/schwenninger-wild-wings/uebersicht
+- `st`: https://www.penny-del.org/teams/straubing-tigers/uebersicht
