@@ -10,8 +10,8 @@ on:
       - teams_del.md
       - teams_del2.md
       - teams_oberliga.md
-  schedule:
-    - cron: "15 5 * * *"
+  #schedule:
+  #  - cron: "15 5 * * *"
   workflow_dispatch:
 
 permissions:
