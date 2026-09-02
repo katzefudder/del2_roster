@@ -1,7 +1,6 @@
 Oberliga Nord
 
 - Füchse Duisburg -
-
 evd9	-9- Sandis Zolmanis (Füchse Duisburg)
 evd10	-10- Edwin Schitz (Füchse Duisburg)
 evd12	-12- Nikita Müller (Füchse Duisburg)
@@ -19,7 +18,6 @@ evd100	Frank Petrozza (Coach Füchse Duisburg)
 evd101	Fabian Schwarze (Assistant Coach Füchse Duisburg)
 
 - Hannover Scorpions -
-
 hsc8	-8- Daniel Kettler (Hannover Scorpions)
 hsc14	-14- Jayden Lammel (Hannover Scorpions)
 hsc16	-16- Thomas Supis (Hannover Scorpions)
@@ -42,7 +40,6 @@ hsc98	-98- Lukas Kopietz (Hannover Scorpions)
 hsc100	Rico Rossi (Coach Hannover Scorpions)
 
 - Herforder Ice Dragons -
-
 hfo7	-7- Dennis Sticha (Herforder Ice Dragons)
 hfo8	-8- Jannis Kälble (Herforder Ice Dragons)
 hfo9	-9- Maxim Mastic (Herforder Ice Dragons)
@@ -52,7 +49,7 @@ hfo14	-14- Leon Köhler (Herforder Ice Dragons)
 hfo18	-18- Philip Woltmann (Herforder Ice Dragons)
 hfo19	-19- Tamas Kanya (Herforder Ice Dragons)
 hfo22	-22- Ulib Berezovs`kij (Herforder Ice Dragons)
-hfo23	-23- Laurens Van Leyen (Herforder Ice Dragons)
+hfo23	-23- Laurens van Leyen (Herforder Ice Dragons)
 hfo26	-26- Jegors Kalnins (Herforder Ice Dragons)
 hfo37	-37- Alexis D'Aoust (Herforder Ice Dragons)
 hfo44	-44- Nicholas Walters (Herforder Ice Dragons)
@@ -67,7 +64,6 @@ hfo94	-94- Maximilian Jelavic (Herforder Ice Dragons)
 hfo100	Henry Thom (Coach Herforder Ice Dragons)
 
 - KSW Icefighters Leipzig -
-
 lei1	-1- Konstantin Kessler (KSW Icefighters Leipzig)
 lei7	-7- Daniel Visner (KSW Icefighters Leipzig)
 lei8	-8- Daniel Schwamberger (KSW Icefighters Leipzig)
@@ -92,7 +88,6 @@ lei100	Hakan Ahlund (Coach KSW Icefighters Leipzig)
 lei101	Michal Hlozek (Assistant Coach KSW Icefighters Leipzig)
 
 - Rostock Piranhas -
-
 rec4	-4- Jannick Stein (Rostock Piranhas)
 rec7	-7- Reid Petryk (Rostock Piranhas)
 rec8	-8- Fedor Kolupaylo (Rostock Piranhas)
@@ -103,7 +98,7 @@ rec24	-24- Louis Postel (Rostock Piranhas)
 rec28	-28- Jonas Öhrvall (Rostock Piranhas)
 rec30	-30- Sebastian Albrecht (Rostock Piranhas)
 rec43	-43- Mika Hupach (Rostock Piranhas)
-rec49	-49- Joshua GEUß (Rostock Piranhas)
+rec49	-49- Joshua Geuß (Rostock Piranhas)
 rec53	-53- Leon Häring (Rostock Piranhas)
 rec61	-61- Joey Luknowsky (Rostock Piranhas)
 rec72	-72- Yannis Walch (Rostock Piranhas)
@@ -115,7 +110,6 @@ rec91	-91- Dante Hahn (Rostock Piranhas)
 rec100	Marius Pöpel (Coach Rostock Piranhas)
 
 - Saale Bulls Halle -
-
 mec6	-6- Julian Wäser (Saale Bulls Halle)
 mec7	-7- Kai Zernikel (Saale Bulls Halle)
 mec9	-9- Robin Drothen (Saale Bulls Halle)
@@ -141,12 +135,10 @@ mec92	-92- Robin Palka (Saale Bulls Halle)
 mec100	Christian Hommel (Coach Saale Bulls Halle)
 
 - Tilburg Trappers -
-
 til100	Danny Albrecht (Coach Tilburg Trappers)
 til101	Dennis ten Bokkel (Assistant Coach Tilburg Trappers)
 
 - Herner EV Miners -
-
 hev3	-3- Gianluca Balla (Herner EV Miners)
 hev6	-6- Tjark Kölsch (Herner EV Miners)
 hev8	-8- Matteo Stöhr (Herner EV Miners)
@@ -170,7 +162,6 @@ hev100	Dirk Schmitz (Coach Herner EV Miners)
 hev101	Lars Gerike (Assistant Coach Herner EV Miners)
 
 - EHC Neuwied -
-
 neu4	-4- Marcus Götz (EHC Neuwied)
 neu5	-5- Matteas Derraugh (EHC Neuwied)
 neu7	-7- Robin Erkinjuntti (EHC Neuwied)
@@ -198,7 +189,6 @@ neu100	Jeffery van Iersel (Coach EHC Neuwied)
 neu101	Jan Curyca (Assistant Coach EHC Neuwied)
 
 - TecArt Black Dragons -
-
 bde2	-2- Dennis Bondarenko (TecArt Black Dragons)
 bde6	-6- Jonas Gerstung (TecArt Black Dragons)
 bde12	-12- Maurice Keil (TecArt Black Dragons)
@@ -216,7 +206,6 @@ bde100	Sebastian Wolsch (Coach TecArt Black Dragons)
 bde101	Robert Schmidt (Assistant Coach TecArt Black Dragons)
 
 - Hammer Eisbären -
-
 heb3	-3- Aron Reisz (Hammer Eisbären)
 heb5	-5- Christian Schiling (Hammer Eisbären)
 heb8	-8- Pontus Wernerson Libäck (Hammer Eisbären)
@@ -237,7 +226,6 @@ heb92	-92- Kyle Hagen (Hammer Eisbären)
 heb100	Tobias Stolikowski (Coach Hammer Eisbären)
 
 - Hannover Indians -
-
 hin4	-4- Aaron Reinig (Hannover Indians)
 hin7	-7- Tobias Möller (Hannover Indians)
 hin10	-10- Tom-Eric Bappert (Hannover Indians)
@@ -268,7 +256,6 @@ hin101	Robin Thomson (Assistant Coach Hannover Indians)
 Oberliga Süd
 
 - Erding Gladiators -
-
 edg13	-13- Michal Spacek (Erding Gladiators)
 edg15	-15- Johannes Meindl (Erding Gladiators)
 edg17	-17- Louis Stromberg (Erding Gladiators)
@@ -276,7 +263,7 @@ edg19	-19- Dennis Henter (Erding Gladiators)
 edg21	-21- Erik Modlmayr (Erding Gladiators)
 edg24	-24- Roman Zap (Erding Gladiators)
 edg27	-27- Korbinian Faltermaier (Erding Gladiators)
-edg28	-28- Fabian BAßLER (Erding Gladiators)
+edg28	-28- Fabian Baßler (Erding Gladiators)
 edg29	-29- Carl Larsson (Erding Gladiators)
 edg30	-30- Daniel Henter (Erding Gladiators)
 edg34	-34- Bastian Cramer (Erding Gladiators)
@@ -293,13 +280,12 @@ edg97	-97- René Röthke (Erding Gladiators)
 edg100	John Sicinski (Coach Erding Gladiators)
 
 - EV Füssen -
-
 evf3	-3- Karel Klikorka (EV Füssen)
 evf6	-6- Ondrej Zelenka (EV Füssen)
 evf8	-8- Vincent Wiedemann (EV Füssen)
 evf14	-14- Ugnius Cizas (EV Füssen)
 evf17	-17- Pius Seitz (EV Füssen)
-evf18	-18- Florian SCHLOßNIKEL (EV Füssen)
+evf18	-18- Florian Schloßnikel (EV Füssen)
 evf19	-19- Julian Straub (EV Füssen)
 evf22	-22- Martins Andzs (EV Füssen)
 evf28	-28- Nicolas Jentsch (EV Füssen)
@@ -318,7 +304,6 @@ evf92	-92- Henry Homann (EV Füssen)
 evf100	Daniel Jun (Coach EV Füssen)
 
 - Heilbronner EC Falken -
-
 hef7	-7- Jan Pavlu (Heilbronner EC Falken)
 hef9	-9- Philipp Nuss (Heilbronner EC Falken)
 hef11	-11- Kevin Dibrov (Heilbronner EC Falken)
@@ -342,7 +327,6 @@ hef91	-91- Tyler Spurgeon (Heilbronner EC Falken)
 hef96	-96- Anton Seewald (Heilbronner EC Falken)
 
 - EV Lindau Islanders -
-
 lin4	-4- Lukas Bender (EV Lindau Islanders)
 lin8	-8- Timo Gams (EV Lindau Islanders)
 lin11	-11- Christopher Grando (EV Lindau Islanders)
@@ -367,9 +351,8 @@ lin98	-98- Valentin Busch (EV Lindau Islanders)
 lin100	Marko Sakic (Coach EV Lindau Islanders)
 
 - EHF Passau Black Hawks -
-
 ehf6	-6- Tom Horschel (EHF Passau Black Hawks)
-ehf7	-7- Marlon D´acunto (EHF Passau Black Hawks)
+ehf7	-7- Marlon D´Acunto (EHF Passau Black Hawks)
 ehf8	-8- Jannis Hüserich (EHF Passau Black Hawks)
 ehf11	-11- Alex Blais (EHF Passau Black Hawks)
 ehf14	-14- Sascha Maul (EHF Passau Black Hawks)
@@ -383,14 +366,13 @@ ehf44	-44- Klavs Planics (EHF Passau Black Hawks)
 ehf65	-65- Alexander Biberger (EHF Passau Black Hawks)
 ehf74	-74- Andrew Schembri (EHF Passau Black Hawks)
 ehf77	-77- Thomas Nuss (EHF Passau Black Hawks)
-ehf79	-79- Leonard MÖßINGER (EHF Passau Black Hawks)
+ehf79	-79- Leonard Mößinger (EHF Passau Black Hawks)
 ehf86	-86- Lukas Eberl (EHF Passau Black Hawks)
 ehf88	-88- David Seidl (EHF Passau Black Hawks)
 ehf91	-91- Luca Maschke (EHF Passau Black Hawks)
 ehf94	-94- Luis Scheibengraber (EHF Passau Black Hawks)
 
 - SC Riessersee -
-
 scr5	-5- Thomas Schmid (SC Riessersee)
 scr10	-10- Parker Colley (SC Riessersee)
 scr12	-12- Johannes Steinhübl (SC Riessersee)
@@ -405,7 +387,7 @@ scr30	-30- Robin Merwald (SC Riessersee)
 scr43	-43- Tim Lindner (SC Riessersee)
 scr49	-49- Christian Pelg (SC Riessersee)
 scr50	-50- Andreas Mechel (SC Riessersee)
-scr67	-67- Lars REUß (SC Riessersee)
+scr67	-67- Lars Reuß (SC Riessersee)
 scr71	-71- Hans Porsberger (SC Riessersee)
 scr76	-76- Luca Allavena (SC Riessersee)
 scr93	-93- Sten Johansson (SC Riessersee)
@@ -413,7 +395,6 @@ scr100	Leif Carlson (Coach SC Riessersee)
 scr101	Markus Jocher (Assistant Coach SC Riessersee)
 
 - ESV Kaufbeuren -
-
 esvk3	-3- Yannik Burghart (ESV Kaufbeuren)
 esvk6	-6- Julian Schams (ESV Kaufbeuren)
 esvk7	-7- Jonas Fischer (ESV Kaufbeuren)
@@ -440,7 +421,6 @@ esvk91	-91- Julian Eichinger (ESV Kaufbeuren)
 esvk100	Sebastian Buchwieser (Coach ESV Kaufbeuren)
 
 - EC Peiting -
-
 ecp1	-1- Tommi Steffen (EC Peiting)
 ecp2	-2- Marcus Gretz (EC Peiting)
 ecp4	-4- Simon Mayr (EC Peiting)
@@ -470,11 +450,9 @@ ecp100	Landon Gare (Coach EC Peiting)
 ecp101	Marco Habermann (Assistant Coach EC Peiting)
 
 - Hockey Club Tigers 1985 -
-
 hct100	Märt Eerme (Coach Hockey Club Tigers 1985)
 
 - Selber Wölfe -
-
 sel8	-8- Max Klughardt (Selber Wölfe)
 sel11	-11- Felix Bauer (Selber Wölfe)
 sel15	-15- Simon Boyko (Selber Wölfe)
@@ -485,8 +463,8 @@ sel27	-27- Michel Weidekamp (Selber Wölfe)
 sel34	-34- Philip Rubin (Selber Wölfe)
 sel42	-42- Fabjon Kuqi (Selber Wölfe)
 sel48	-48- Niko Lahtinen (Selber Wölfe)
-sel57	-57- Daniel WEIß (Selber Wölfe)
-sel59	-59- Maximilian GLÄßL (Selber Wölfe)
+sel57	-57- Daniel Weiß (Selber Wölfe)
+sel59	-59- Maximilian Gläßl (Selber Wölfe)
 sel68	-68- Tom Pauker (Selber Wölfe)
 sel70	-70- Stephan Tramm (Selber Wölfe)
 sel74	-74- Moritz Raab (Selber Wölfe)
@@ -501,7 +479,6 @@ sel100	Josef Huber (Coach Selber Wölfe)
 sel101	Markus Weinzierl (Assistant Coach Selber Wölfe)
 
 - Höchstadt Alligators -
-
 hec4	-4- Fabiano Benz (Höchstadt Alligators)
 hec5	-5- Cameron Leask (Höchstadt Alligators)
 hec8	-8- Ratislav Judin (Höchstadt Alligators)
@@ -522,7 +499,6 @@ hec92	-92- Nico Zimmermann (Höchstadt Alligators)
 hec100	Morgan Persson (Coach Höchstadt Alligators)
 
 - Stuttgart Rebels -
-
 sec3	-3- Xaver Tippmann (Stuttgart Rebels)
 sec9	-9- Daniel Pronin (Stuttgart Rebels)
 sec10	-10- Calvin Fischer (Stuttgart Rebels)
@@ -546,7 +522,6 @@ sec100	Tom Coolen (Coach Stuttgart Rebels)
 sec101	Eu-Jin Yap (Assistant Coach Stuttgart Rebels)
 
 - Tölzer Löwen -
-
 ect1	-1- Niklas Alpha (Tölzer Löwen)
 ect5	-5- Korbinian Hopper (Tölzer Löwen)
 ect9	-9- Toms Prokopovics (Tölzer Löwen)
@@ -577,9 +552,8 @@ ect93	-93- Niklas Hörmann (Tölzer Löwen)
 ect100	Axel Kammerer (Coach Tölzer Löwen)
 
 - Deggendorfer SC -
-
 dsc1	-1- Sebastian Graf (Deggendorfer SC)
-dsc4	-4- Silvan HEIß (Deggendorfer SC)
+dsc4	-4- Silvan Heiß (Deggendorfer SC)
 dsc5	-5- Jan Bednar (Deggendorfer SC)
 dsc6	-6- Manuel Edfelder (Deggendorfer SC)
 dsc11	-11- Curtis Leinweber (Deggendorfer SC)
@@ -592,7 +566,7 @@ dsc21	-21- Marian Kapicak (Deggendorfer SC)
 dsc22	-22- Thore Weyrauch (Deggendorfer SC)
 dsc24	-24- Niklas Pill (Deggendorfer SC)
 dsc25	-25- Ondrej Pozivil (Deggendorfer SC)
-dsc44	-44- Marco BAßLER (Deggendorfer SC)
+dsc44	-44- Marco Baßler (Deggendorfer SC)
 dsc51	-51- Timo Pielmeier (Deggendorfer SC)
 dsc71	-71- Niclas Focks (Deggendorfer SC)
 dsc73	-73- Zachary Kaiser (Deggendorfer SC)
