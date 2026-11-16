@@ -7,7 +7,7 @@
 - `is`: https://www.penny-del.org/teams/iserlohn-roosters/uebersicht
 - `ko`: https://www.penny-del.org/teams/koelner-haie/uebersicht
 - `kr`: https://www.penny-del.org/teams/krefeld-pinguine/uebersicht
-- `fr`: https://www.penny-del.org/teams/loewen-frankfurt/uebersicht
+- `ffm`: https://www.penny-del.org/teams/loewen-frankfurt/uebersicht
 - `nu`: https://www.penny-del.org/teams/nuernberg-ice-tigers/uebersicht
 - `br`: https://www.penny-del.org/teams/pinguins-bremerhaven/uebersicht
 - `sw`: https://www.penny-del.org/teams/schwenninger-wild-wings/uebersicht

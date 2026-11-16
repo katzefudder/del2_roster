@@ -1,0 +1,76 @@
+name: Update rosters
+
+on:
+  schedule:
+    - cron: "30 4 * * *"   # daily 05:30 CET / 06:30 CEST
+  workflow_dispatch:
+    inputs:
+      leagues:
+        description: "Leagues (space separated, empty = all)"
+        required: false
+        default: ""
+      force:
+        description: "Write even if the plausibility check fails"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - scrape_rosters.py
+      - teams_*.md
+      - .github/workflows/update-rosters.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-rosters
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: |
+          pipx install poetry
+          poetry install --no-interaction
+
+      - name: Tests
+        run: poetry run pytest -q
+
+      - name: Scrape
+        id: scrape
+        env:
+          LEAGUES: ${{ github.event.inputs.leagues }}
+          FORCE: ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        run: |
+          set +e
+          poetry run python scrape_rosters.py $LEAGUES $FORCE
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat reports/*.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add roster_*.txt reports/
+          if git diff --cached --quiet; then
+            echo "No roster changes."
+            exit 0
+          fi
+          { echo "chore: update rosters"; echo; cat reports/*.md; } > "$RUNNER_TEMP/message"
+          git commit -q -F "$RUNNER_TEMP/message"
+          git push
+
+      - name: Fail if a league was not updated
+        if: steps.scrape.outputs.status != '0'
+        run: |
+          echo "::error::At least one league was not updated (see the Scrape step). Its roster file was kept."
+          exit 1
