@@ -61,11 +61,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add roster_*.txt reports/
-          if git diff --cached --quiet; then
-            echo "No roster changes."
+          if git diff --quiet -- roster_*.txt; then
+            echo "No roster changes."   # reports alone are not worth a commit
             exit 0
           fi
+          git add roster_*.txt reports/
           { echo "chore: update rosters"; echo; cat reports/*.md; } > "$RUNNER_TEMP/message"
           git commit -q -F "$RUNNER_TEMP/message"
           git push
