@@ -1,0 +1,27 @@
+## Oberliga
+
+- **Deggendorfer SC**: neu: Philipp Faulhaber (16), Joel Hofmann (23), Luca Zitterbart (33), Luke Weilandt (55)
+- **EC Peiting**: neu: Fabian Hickl (62), Tim Keller (67), Niklas Greil (75)
+- **EHC Neuwied**: neu: Mika Hennig (1), Lasse Naumann (9), David Segeth (11), Aleksandrs Kohans (12), Leon Kreps (15), Mikka Dietzschold (48), Robert Riegel (77), Adrian Kuhn (86), Jason Struck (87)
+- **EHF Passau Black Hawks**: neu: Pepino Langmeier (9), Timo Hirsch (10), Jan-Luka Meissner (12), Marks Jirgensons (33), Maik Maul (41), Jakob Meissner (50), Jason Arzt (51), Dimitrij Haberling (72), Leon Sittner (84), Ilias Burbach (93)
+- **ESV Kaufbeuren**: neu: Jakob Peukert (27), Liron-Alec Pellizzari (60)
+- **EV Füssen**: neu: Fabio Sarto (9), Nicolas Cornett (24), Quirin Maier (31), Baran Cicek (32), Bence Farkas (43), Lorenz Mehrle (53), Samuel Hrabcak (61), Ivan Petrov (62), Marcel Gmehlin (63), Adrian Ernst (65), Raphael Hasenkamf (66), Daniel Jun (67), Ryan Odude (68), Anselm Gerg (69)
+- **EV Lindau Islanders**: neu: Valentin Ankirchner (1), Arturs Kruminsch (19), Tyler Welsh (71), Maik Hess (77)
+- **Erding Gladiators**: neu: Lukas Gaus (23), Marc Schmidpeter (33), Tobias Fischer (61), Julian Lier (62), Nikita Kolomejtsev (63), Ferdinand Schlepp (64), Michael Schepel (65), Mats Geppert (66), Liam Trew (67), Andreas Grin (68), Leon Lell (69)
+- **Füchse Duisburg**: neu: Niklas Hertenstein (1), Daniel Geiger (8), Alec Moiseenko (16), Elias Aul (17), Stanislav Kronhardt (18), Santeri Haarala (20), Toni Fürst (23), Aaron Kaiser (32), Nico Wiens (33), Vyacheslav Permitin (34), Thor Scheida (37), Maximilian Schulz (40), Justus Wegge (41), Marko Brlic (53), Tobin Brandt (59), Maximilian Strauss (78), Cristiano Ferreira (97), Sergej Schaulko (98)
+- **Hammer Eisbären**: neu: Christopher Ishmael (4), Manuel Schams (6), Wladimir Bloch (7), Bennet Otten (13), Sascha Hartmann (17), Jannes Schreiber (27), Ben Stadler (28), John Sauter (32), Maxim Lukojanov (36), Luis Jäckle (37), Reko Pohjamo (41), Carl Konze (47), Karl Gärtner (66), Julius Schulte (72), Albert Bicker (78), Eric Doronin (80), Devid Kulpinau (86), Sali Schollmeyer (89), Sebastian Lassmann (91)
+- **Hannover Indians**: neu: André Reiss (98)
+- **Hannover Scorpions**: neu: Levi Holzhausen (3), Til Raab (74), Oleg Shilin (90)
+- **Heilbronner EC Falken**: neu: Dean Döge (1), Cedric Nachtmann (2), Maksim Hanzek (5), Marco Haas (40), Raik Wadowski (50), Max Ziergiebel (51), Dominik Klein (52), Yanik Haas (53), Matthias Pape (54), Luca Franzese (55), Tim Brenner (90), Ryan Olsen (94)
+- **Herner EV Miners**: neu: Jesse Kauhanen (4), David Jenka (7), Alex Samusev (25), Bennett Burym (26), Leon-Niklas Jessler (31), Tobias Schmitz (32), Luis Schoenen (44), Sebastien Piche (58), Ole Blumenkamp (73), Denis Root (88), Luca Müller (93)
+- **Hockey Club Tigers 1985**: neu in der Liga
+- **Höchstadt Alligators**: neu: Jonas Krautloher (1), Clemens Schulze (2), Alois Bittel (3), Maxim Lebsak (7), Luca Ganz (35), Tobias Nachtmann (42), Maxim Scholl (91)
+- **KSW Icefighters Leipzig**: neu: Reid Stefanson (14), Jacob Ficenec (20), Ivan Komirist (36), Lasse Dietzschold (37), Richard Samigullin (88); weg: Leon Kreps
+- **Rostock Piranhas**: neu: Marlon Braun (6), Lars Stelzmann (11), Tim Otterstätter (13), Daniel Gavriluk (29), Mark Kaleinikovas (31), Nils Apel (32), Karl Wolfsteiner (46), Andreas Kuhn (82), Victor Knaub (88), Hans Jesper Öhrvall (89), Clemens Sager (92); weg: Jesper Öhrvall
+- **SC Riessersee**: neu: Max Bolle (1), Matthias Harr (8), Luis Becker (14), Sebastian Holzapfel (19), Arel Albert (28), Johannes Girg (39), Kilian Lehner (41), Benedict Chyzowski (42), Moritz Serikow (55), Spencer Berry (58), Maxime Bickel (65), Anian Brettner (66), Rio Kaiser (81)
+- **Saale Bulls Halle**: neu: Lars Hamori (16), Nikita Knaus (22), Calder Anderson (29), Mick Hochreither (55), Florian Reinwald (89), Marco Wölfl (94)
+- **Selber Wölfe**: neu: Tobias Vait (6), Matej Giesl (17), Luca Gläser (24), Lukas Krieger (25), Nico Miksch (38), Joel Koczlarek (39), Benjamin Friedrich (43), Conner McLeod (47), Daniel Rolsing (53), Fabian Fuchs (58), Lenny Elwing (63), David Kubik (72), Georg Thal (73), Fabian Broll (83), Josef Zvolanek (85), Jake Coughler (86)
+- **Stuttgart Rebels**: neu: Liam Kriska (2), Maximilian Oswald (8), Milan Klein (81), Adam Zoweil (82), Fynn Ludwig (84), Arthur Milic (92)
+- **TecArt Black Dragons**: neu: Finn Bernhardt (1), Jesper Satzky (8), Alex Berger (10), Moritz Rose (11), Jonas Fontana (17), Edward Scott (18), Konstantin Melnikow (21), Petr Gulda (26), Ryan Gropp (28), Paul Schulz (33), Phil Bischoff (44), Jacob Lagace (81), Philipp Hertel (93)
+- **Tilburg Trappers**: neu in der Liga
+- **Tölzer Löwen**: neu: Matthias Bittner (32)

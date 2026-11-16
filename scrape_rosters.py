@@ -31,6 +31,7 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parent
 USER_AGENT = "Mozilla/5.0 (compatible; roster-scraper/2.0)"
 REQUEST_DELAY_SECONDS = 1.0
+RENDER_DELAY_SECONDS = 2.0  # between pages opened in the browser (each loads several data requests)
 MIN_PLAYERS = 5            # fewer players for a team: the page was not read correctly
 MAX_SHRINK = 0.6           # a team with >= SHRINK_BASE players may not drop below 60 %
 SHRINK_BASE = 15
@@ -110,6 +111,38 @@ class Http:
                     raise ScrapeError(f"{url}: {error}") from error
                 time.sleep(5 * (attempt + 1))
         raise AssertionError("unreachable")
+
+    def render(self, url: str, selector: str) -> BeautifulSoup:
+        """Opens the page in headless Chromium like a visitor and returns the DOM once `selector` exists."""
+        if not hasattr(self, "_browser"):
+            from playwright.sync_api import sync_playwright
+            self._playwright = sync_playwright().start()
+            self._browser = self._playwright.chromium.launch()
+            self._page = self._browser.new_page()
+            # Only what the roster needs: no images, fonts, media.
+            self._page.route("**/*", lambda route: route.abort()
+                             if route.request.resource_type in ("image", "font", "media") else route.continue_())
+        for attempt in range(3):
+            wait = self._last + RENDER_DELAY_SECONDS - time.monotonic()
+            if wait > 0:
+                time.sleep(wait)
+            self._last = time.monotonic()
+            try:
+                self._page.goto(url, wait_until="domcontentloaded", timeout=60_000)
+                self._page.wait_for_selector(selector, state="attached", timeout=45_000)
+                self._page.wait_for_timeout(500)
+                return BeautifulSoup(self._page.content(), "html.parser")
+            except Exception as error:  # playwright.TimeoutError and navigation errors
+                if attempt == 2:
+                    raise ScrapeError(f"{url}: {error}".splitlines()[0]) from error
+                time.sleep(5 * (attempt + 1))
+        raise AssertionError("unreachable")
+
+    def close(self):
+        if hasattr(self, "_browser"):
+            self._browser.close()
+            self._playwright.stop()
+            del self._browser
 
 
 # --- DEL (penny-del.org) ----------------------------------------------------------
@@ -233,6 +266,106 @@ def scrape_del2(http: Http) -> list[TeamRoster]:
     return teams
 
 
+# --- Oberliga (deb-online.live) ---------------------------------------------------
+#
+# Standings and rosters are rendered in the browser by a hockeydata widget, so these pages
+# are opened in headless Chromium. The league page without ?divisionId shows the current
+# season; its id is read from the page and passed on to the team pages.
+
+OBERLIGA_BASE = "https://deb-online.live"
+OBERLIGA_DIVISIONS = {
+    "Oberliga Nord": f"{OBERLIGA_BASE}/liga/herren/oberliga-nord/",
+    "Oberliga Süd": f"{OBERLIGA_BASE}/liga/herren/oberliga-sued/",
+}
+STANDINGS = '[data-hd-widget="hockeydata.los.Standings"]'
+ROSTER_TABLE = ".-hd-los-team-full-page-roster-details-data table"
+NAME_PARTICLES = {"van", "von", "der", "den", "de", "di", "da", "du", "la", "le", "ten", "ter", "zu"}
+
+
+def oberliga_key(url: str) -> str:
+    match = re.search(r"teamId=(\d+)", url)
+    if not match:
+        raise ValueError(f"no Oberliga team URL: {url}")
+    return match.group(1)
+
+
+def division_id(page: BeautifulSoup) -> str:
+    match = re.search(r'"divisionId":"(\d+)"', str(page.select_one(STANDINGS) or page))
+    if not match:
+        raise ScrapeError("keine divisionId auf der Ligaseite")
+    return match.group(1)
+
+
+def oberliga_teams(standings: BeautifulSoup) -> list[tuple[str, str]]:
+    """Rendered standings -> [(teamId, long name)]; rows carry class -hd-los-standings-row-<teamId>."""
+    teams = []
+    for row in standings.select(f"{STANDINGS} tr.-hd-los-standings-row"):
+        team_id = next((c.rsplit("-", 1)[1] for c in row.get("class", [])
+                        if re.fullmatch(r"-hd-los-standings-row-\d+", c)), None)
+        name = text_of(row.select_one(".-hd-los-standings-team-name-long"))
+        if team_id and name and team_id not in [t for t, _ in teams]:
+            teams.append((team_id, name))
+    return teams
+
+
+def capitalize_name(word: str) -> str:
+    """'O'BRIEN' -> 'O'Brien', 'MÜLLER-THURGAU' -> 'Müller-Thurgau', 'MCLEOD' -> 'McLeod'."""
+    word = re.sub(r"[^\W\d_]+", lambda m: m.group().capitalize(), word.lower())
+    return re.sub(r"^Mc(\w)", lambda m: "Mc" + m.group(1).upper(), word)
+
+
+def hockeydata_name(text: str) -> str:
+    """'VAN DER LINDE Leon' -> 'Leon van der Linde' (surname in capitals first)."""
+    words = clean(text.replace("_", "-")).split()
+    surname = []
+    while words and words[0].upper() == words[0] and any(ch.isalpha() for ch in words[0]):
+        surname.append(words.pop(0))
+    if not words or not surname:
+        return clean(text)
+    surname = [w.lower() if w.lower() in NAME_PARTICLES and i < len(surname) - 1 else capitalize_name(w)
+               for i, w in enumerate(surname)]
+    return " ".join(words + surname)
+
+
+def oberliga_players(page: BeautifulSoup) -> list[Person]:
+    players = []
+    table = page.select_one(ROSTER_TABLE)
+    for row in table.select("tbody tr") if table else []:
+        cells = row.find_all("td")
+        if len(cells) >= 2 and text_of(cells[0]):
+            players.append(Person(hockeydata_name(text_of(cells[0])), parse_number(text_of(cells[1]))))
+    return players
+
+
+def oberliga_staff(page: BeautifulSoup) -> list[Person]:
+    """Team facts: rows like 'Trainer | Casey Fratkin'."""
+    staff = []
+    for row in page.select(".-hd-los-team-full-page-team-facts-table-row"):
+        cells = row.find_all("td")
+        if len(cells) != 2:
+            continue
+        role = staff_role(text_of(cells[0]))
+        for name in re.split(r",|\s+und\s+|\s*/\s*", text_of(cells[1])) if role else []:
+            if clean(name):
+                staff.append(Person(clean(name), role=role))
+    return staff
+
+
+def scrape_oberliga(http: Http) -> list[TeamRoster]:
+    teams = []
+    for title, url in OBERLIGA_DIVISIONS.items():
+        standings = http.render(url, f"{STANDINGS} tr.-hd-los-standings-row")
+        division = division_id(standings)
+        found = oberliga_teams(standings)
+        if not found:
+            raise ScrapeError(f"{title}: keine Teams in der Tabelle ({url})")
+        for team_id, name in found:
+            team_url = f"{OBERLIGA_BASE}/team/?teamId={team_id}&divisionId={division}"
+            page = http.render(team_url, f"{ROSTER_TABLE} tbody tr")
+            teams.append(TeamRoster(team_id, name, team_url, oberliga_players(page), oberliga_staff(page)))
+    return teams
+
+
 # --- Leagues ----------------------------------------------------------------------
 
 @dataclass(frozen=True)
@@ -259,6 +392,7 @@ class League:
 LEAGUES = {
     "del": League("del", "DEL", scrape_del, del_key, min_teams=10),
     "del2": League("del2", "DEL2", scrape_del2, del2_key, min_teams=10),
+    "oberliga": League("oberliga", "Oberliga", scrape_oberliga, oberliga_key, min_teams=20),
 }
 
 
@@ -373,6 +507,13 @@ def parse_roster(text: str) -> dict[str, dict[str, int | None]]:
     return teams
 
 
+def adopt_spelling(teams: list[TeamRoster], previous: dict[str, dict]) -> None:
+    """Keeps the previous spelling of a name that differs only in case (e.g. 'MacDonald' vs 'Macdonald')."""
+    known = {name.casefold(): name for players in previous.values() for name in players}
+    for team in teams:
+        team.players = [Person(known.get(p.name.casefold(), p.name), p.number, p.role) for p in team.players]
+
+
 def check_plausibility(league: League, teams: list[TeamRoster], previous: dict[str, dict]) -> list[str]:
     problems = []
     if len(teams) < league.min_teams:
@@ -421,6 +562,7 @@ def update(league: League, http: Http, force: bool = False) -> bool:
     except ScrapeError as error:
         print(f"Abbruch {league.title}: {error}", file=sys.stderr)
         return False
+    adopt_spelling(teams, previous)
     codes, notes = assign_codes(league, teams)
     text = render(teams, codes)
     problems = check_plausibility(league, teams, previous)
@@ -452,7 +594,10 @@ def main(argv: list[str] | None = None) -> int:
     if unknown:
         parser.error(f"unbekannte Liga: {', '.join(unknown)}")
     http = Http()
-    results = [update(LEAGUES[name], http, args.force) for name in (args.leagues or LEAGUES)]
+    try:
+        results = [update(LEAGUES[name], http, args.force) for name in (args.leagues or LEAGUES)]
+    finally:
+        http.close()
     return 0 if all(results) else 1
 
 

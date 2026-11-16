@@ -41,6 +41,7 @@ jobs:
         run: |
           pipx install poetry
           poetry install --no-interaction
+          poetry run playwright install --with-deps chromium   # Oberliga pages need a browser
 
       - name: Tests
         run: poetry run pytest -q

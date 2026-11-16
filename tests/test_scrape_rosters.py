@@ -159,3 +159,65 @@ def test_generated_code_avoids_taken_codes():
 def test_teams_files_parse(league):
     codes = sr.load_codes(league)
     assert len(codes) >= league.min_teams
+
+
+# --- Oberliga -----------------------------------------------------------------------
+
+@pytest.mark.parametrize("raw, expected", [
+    ("ASSAVOLYUK Daniel", "Daniel Assavolyuk"),
+    ("ELSBERGER Julian-Maximilian", "Julian-Maximilian Elsberger"),
+    ("VAN DER LINDE Leon", "Leon van der Linde"),
+    ("O'BRIEN Sean", "Sean O'Brien"),
+    ("MCLEOD Conner", "Conner McLeod"),
+    ("METZLER_WAGNER Tobias", "Tobias Metzler-Wagner"),
+    ("PFÄNDER Marcel", "Marcel Pfänder"),
+    ("Already Normal", "Already Normal"),
+])
+def test_hockeydata_name(raw, expected):
+    assert sr.hockeydata_name(raw) == expected
+
+
+OBERLIGA_STANDINGS = """
+<div data-hd-widget="hockeydata.los.Standings" data-hd-widget-options='{"apiKey":"x","divisionId":"21614"}'>
+<table><tbody>
+<tr class="-hd-los-standings-row -hd-los-standings-row-20912 -hd-clickable"><td>1</td>
+  <td class="-hd-los-standings-team-name-short">DSC</td><td class="-hd-los-standings-team-name-long">Deggendorfer SC</td></tr>
+<tr class="-hd-los-standings-row -hd-los-standings-row-70199 -hd-clickable"><td>2</td>
+  <td class="-hd-los-standings-team-name-long">ESV Kaufbeuren</td></tr>
+</tbody></table></div>
+"""
+
+OBERLIGA_TEAM = """
+<div class="-hd-los -hd-los-team-full-page">
+<table><tbody>
+<tr class="-hd-los-team-full-page-team-facts-table-row"><td>Vereinsname</td><td>Deggendorfer SC</td></tr>
+<tr class="-hd-los-team-full-page-team-facts-table-row"><td>Trainer</td><td>Casey Fratkin</td></tr>
+<tr class="-hd-los-team-full-page-team-facts-table-row"><td>Co-Trainer</td><td>A Eins, B Zwei</td></tr>
+<tr class="-hd-los-team-full-page-team-facts-table-row"><td>Torwarttrainer</td><td>Not Me</td></tr>
+</tbody></table>
+<div class="-hd-los-team-full-page-container-data -hd-los-team-full-page-roster-details-data"><table>
+<thead><tr><th>Spieler</th><th>#</th><th>Pos</th></tr></thead>
+<tbody><tr class="-hd-clickable"><td value="GRAF Sebastian">GRAF Sebastian</td><td>1</td><td>G</td></tr>
+<tr class="-hd-clickable"><td>HEISS Silvan</td><td></td><td>D</td></tr></tbody></table></div>
+</div>
+"""
+
+
+def test_oberliga_standings():
+    page = soup(OBERLIGA_STANDINGS)
+    assert sr.division_id(page) == "21614"
+    assert sr.oberliga_teams(page) == [("20912", "Deggendorfer SC"), ("70199", "ESV Kaufbeuren")]
+    assert sr.oberliga_key("https://deb-online.live/team/?teamId=20912&divisionId=21614") == "20912"
+
+
+def test_oberliga_team_page():
+    page = soup(OBERLIGA_TEAM)
+    assert sr.oberliga_players(page) == [Person("Sebastian Graf", 1), Person("Silvan Heiss")]
+    assert sr.oberliga_staff(page) == [Person("Casey Fratkin", role="Coach"), Person("A Eins", role="Assistant Coach"),
+                                       Person("B Zwei", role="Assistant Coach")]
+
+
+def test_previous_spelling_wins_when_only_case_or_sharp_s_differs():
+    teams = [TeamRoster("1", "T", "u", [Person("Silvan Heiss", 4), Person("Conner Mcleod", 47), Person("New Guy", 9)])]
+    sr.adopt_spelling(teams, {"T": {"Silvan Heiß": 4, "Conner McLeod": 47}})
+    assert [p.name for p in teams[0].players] == ["Silvan Heiß", "Conner McLeod", "New Guy"]

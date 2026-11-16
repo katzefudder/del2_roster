@@ -1,13 +1,13 @@
 # Roster files for Captioner
 
-Rosters for **DEL**, **DEL2** and (pending) **Oberliga Nord/Süd** in Captioner's code-replacement format,
+Rosters for **DEL**, **DEL2** and **Oberliga Nord/Süd** in Captioner's code-replacement format,
 scraped daily from the official league sites by GitHub Actions.
 
 | File | Source |
 |---|---|
 | `roster_del.txt` | penny-del.org: team list `/teams`, players `/teams/<team>/kader`, coaches `/teams/<team>/infos` |
 | `roster_del2.txt` | del-2.org: team list `/clubs`, players and officials on `/clubs/<team>_<id>` |
-| `roster_oberliga.txt` | deb-online.live, **not automated yet** (roster is rendered by a JavaScript widget) |
+| `roster_oberliga.txt` | deb-online.live: current division from `/liga/herren/oberliga-nord/` and `…-sued/`, team list from the standings, players and coach from `/team/?teamId=…`. These pages are rendered by a JavaScript widget, so they are opened in headless Chromium (Playwright), images and fonts blocked, 2 s between pages. |
 
 ## Using it in Captioner
 
@@ -43,7 +43,11 @@ bn101	Dominic Auger (Assistant Coach EC Bad Nauheim)
 `teams_<league>.md` maps each team to a fixed code (`- \`bn\`: <team URL>`). The team list itself comes from
 the league site, so promoted or relegated teams need no edit. A team missing from the file gets a generated
 code; the change report says so and shows the line to add. Codes must be letters only and unique across all
-leagues (`fr` = EHC Freiburg, DEL2; Löwen Frankfurt is `ffm`). The tests check both.
+leagues (`fr` = EHC Freiburg, DEL2; Löwen Frankfurt is `ffm`). The tests check both. Keys: DEL team slug,
+DEL2 club id, Oberliga `teamId`.
+
+Oberliga names come as `SURNAME Firstname` and are converted (`Leon van der Linde`, `Conner McLeod`). If the
+previous file spelled a name the same apart from case or ß/ss, that spelling is kept (`Silvan Heiß`).
 
 ## Daily run
 
@@ -61,10 +65,12 @@ files, and on demand (Actions → Update rosters → Run workflow; optional leag
 
 ```sh
 poetry install
+poetry run playwright install chromium   # once, for the Oberliga
 poetry run pytest
 poetry run python scrape_rosters.py          # all leagues
 poetry run python scrape_rosters.py del2     # one league
 poetry run python scrape_rosters.py --force  # skip the plausibility check
 ```
 
-Requests are sequential with one second between them (about 45 requests per run).
+Requests are sequential: one second between pages for DEL/DEL2 (about 45), two seconds between the 28
+Oberliga pages. A full run takes about two minutes.
