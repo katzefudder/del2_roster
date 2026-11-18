@@ -207,6 +207,7 @@ esvk100	Sebastian Buchwieser (Coach ESV Kaufbeuren)
 
 evf	EV Füssen
 evf3	-3- Karel Klikorka (EV Füssen)
+evf5	-5- Fabian Kuba (EV Füssen)
 evf6	-6- Ondrej Zelenka (EV Füssen)
 evf8	-8- Vincent Wiedemann (EV Füssen)
 evf9	-9- Fabio Sarto (EV Füssen)
