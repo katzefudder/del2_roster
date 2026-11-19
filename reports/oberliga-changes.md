@@ -1,3 +1,3 @@
 ## Oberliga
 
-- **EV Füssen**: neu: Fabian Kuba (5)
+- **Deggendorfer SC**: neu: Mark Zengerle (9)
