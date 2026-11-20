@@ -1,3 +1,3 @@
 ## DEL
 
-Keine Kaderänderungen.
+- **Augsburger Panther**: neu: Mitchell Hoelscher (44)
