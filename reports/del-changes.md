@@ -1,3 +1,3 @@
 ## DEL
 
-- **Augsburger Panther**: neu: Mitchell Hoelscher (44)
+- **Löwen Frankfurt**: Nummer: Colin Schlenker (? → 6)

@@ -1,3 +1,4 @@
 ## DEL2
 
-Keine Kaderänderungen.
+- **EV Landshut**: neu: Casey Dornbach (18)
+- **Starbulls Rosenheim**: neu: Yannick Schaarmann (32)
