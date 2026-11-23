@@ -1,3 +1,3 @@
 ## DEL
 
-- **Löwen Frankfurt**: Nummer: Colin Schlenker (? → 6)
+Keine Kaderänderungen.
