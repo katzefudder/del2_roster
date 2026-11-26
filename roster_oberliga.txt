@@ -100,7 +100,7 @@ neu87	-87- Jason Struck (EHC Neuwied)
 neu88	-88- Jeffrey Smith (EHC Neuwied)
 neu94	-94- Daniel Becker (EHC Neuwied)
 neu96	-96- Artjom Alexandrov (EHC Neuwied)
-neu100	Jeffery van Iersel (Coach EHC Neuwied)
+neu100	Michael JAMIESON (Coach EHC Neuwied)
 neu101	Jan Curyca (Assistant Coach EHC Neuwied)
 
 - EHF Passau Black Hawks -
